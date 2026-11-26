@@ -1,0 +1,116 @@
+/* /styles.css */
+
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+    display: flex !important;
+    width: max-content !important;
+    animation: scroll 65s linear infinite !important;
+}
+
+.animate-marquee:hover {
+    animation-play-state: paused !important;
+}
+
+/* Wider project group wrapper (520px wide so cards never bunch up) */
+.project-group {
+    width: 520px !important;
+    flex-shrink: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px !important;
+    cursor: pointer !important;
+}
+
+/* Standalone Image Box on Top (Taller and larger) */
+.project-image-box {
+    width: 100% !important;
+    height: 300px !important;
+    background-color: #FAF7F0 !important;
+    border-radius: 1rem !important;
+    border: 1px solid #E3DEC3 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 0.9rem !important;
+    color: #7A8A7E !important;
+    transition: all 0.3s ease !important;
+}
+
+.project-group:hover .project-image-box {
+    border-color: #C4BC9E !important;
+}
+
+/* Standalone Text Box Below (Completely separate entity) */
+.project-text-box {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+    width: 100% !important;
+    padding: 0 4px !important;
+}
+
+/* /styles.css - Navbar Styles */
+.portfolio-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: rgba(253, 251, 247, 0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #E3DEC3;
+    padding: 16px 0;
+    margin-bottom: 32px;
+}
+
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #3A4A3E;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    list-style: none;
+}
+
+.nav-links a {
+    color: #4A5D4E;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+    color: #3A4A3E;
+    font-weight: bold;
+}
+
+.nav-cta {
+    background-color: #F4F1EA;
+    border: 1px solid #E3DEC3;
+    padding: 8px 16px;
+    border-radius: 0.5rem;
+    font-size: 0.85rem;
+    color: #3A4A3E;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.nav-cta:hover {
+    background-color: #E3DEC3;
+}

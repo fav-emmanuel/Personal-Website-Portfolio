@@ -1,702 +1,678 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Favour Emmanuel | Portfolio</title>
-    
-    <!-- Importing Comfortaa font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&display=swap" rel="stylesheet">
-
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              comfortaa: ['Comfortaa', 'sans-serif'],
-            },
-          }
-        }
-      }
-    </script>
-
-    <!-- Linking External CSS Stylesheet with Cache-Buster -->
-    <link rel="stylesheet" href="styles.css?v=3">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Favour Emmanuel | Software Engineering Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            comfortaa: ['Comfortaa', 'cursive', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body class="bg-[#FDFBF7] text-[#4A5D4E] font-comfortaa min-h-screen p-6 md:p-12">
+  <div class="max-w-6xl mx-auto space-y-10">
+    <!-- Top Navigation -->
+    <header class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 border-b border-[#E3DEC3] pb-6">
+      <div>
+        <h1 class="text-2xl md:text-3xl font-bold text-[#3A4A3E]">Favour Emmanuel</h1>
+        <p class="text-sm text-[#6A7A6E] mt-1">Software Engineering Portfolio</p>
+      </div>
+      <nav class="flex flex-wrap items-center gap-3 text-xs sm:text-sm">
+        <a href="#about" class="px-3 py-1.5 rounded-lg hover:bg-[#F4F1EA] transition">About Me</a>
+        <a href="#tech-stack" class="px-3 py-1.5 rounded-lg hover:bg-[#F4F1EA] transition">Tech Stack</a>
+        <a href="https://github.com/fav-emmanuel" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-lg hover:bg-[#F4F1EA] transition">GitHub Profile</a>
+        <a href="https://github.com/fav-emmanuel/Personal-Website-Portfolio" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-lg bg-[#F4F1EA] border border-[#E3DEC3] font-semibold text-[#3A4A3E] hover:bg-[#EBE6D8] transition">Portfolio Repo</a>
+      </nav>
+    </header>
 
-    <!-- Centered Container Wrapper -->
-    <div class="max-w-8xl mx-auto">
+    <main id="projects" class="space-y-12 pb-16">
+      <!-- Intro -->
+      <section class="bg-[#F4F1EA] p-6 md:p-8 rounded-2xl border border-[#E3DEC3] shadow-sm space-y-2">
+        <h2 class="text-xl font-bold text-[#3A4A3E]">Road to 25 Initiative</h2>
+        <p class="text-sm leading-relaxed">
+          Welcome to my 25-project software engineering portfolio. This initiative tracks my hands-on progression across five technical tiers—moving from foundational algorithms and utilities up to distributed systems, data pipelines, and machine learning architectures. Hover any tier to pause and scroll horizontally, or click a card to launch its live page.
+        </p>
+      </section>
 
-        <!-- 1. Top Header & Navigation on the Same Line -->
-        <header class="mb-8 border-b border-[#E3DEC3] pb-6 flex justify-between items-center">
-            <!-- Left: Title -->
-            <div>
-                <h1 class="text-4xl font-bold tracking-tight text-[#3A4A3E]">Favour Emmanuel</h1>
-                <p class="text-sm opacity-80 mt-1">Software Engineering Portfolio</p>
-            </div>
-
-            <!-- Right: Navigation Links & Contact Button -->
-            <nav class="portfolio-nav" style="background: none; border: none; padding: 0; margin: 0;">
-                <ul class="nav-links" style="display: flex; gap: 20px; align-items: center; list-style: none; margin: 0; padding: 0;">
-                    <li><a href="#about" style="color: #4A5D4E; text-decoration: none; font-size: 0.9rem;">About Me</a></li>
-                    <li><a href="#tech-stack" style="color: #4A5D4E; text-decoration: none; font-size: 0.9rem;">Tech Stack</a></li>
-                    <li><a href="https://github.com/fav-emmanuel" target="_blank" rel="noopener noreferrer" style="color: #4A5D4E; text-decoration: none; font-size: 0.9rem;">GitHub Profile</a></li>
-                    <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" style="color: #4A5D4E; text-decoration: none; font-size: 0.9rem;">LinkedIn</a></li>
-                    <li><a href="cv.pdf" target="_blank" style="color: #4A5D4E; text-decoration: none; font-size: 0.9rem;">CV</a></li>
-                    <li>
-                        <button onclick="openContactModal()" class="nav-cta" style="background-color: #F4F1EA; border: 1px solid #E3DEC3; padding: 8px 16px; border-radius: 0.5rem; font-size: 0.85rem; color: #3A4A3E; cursor: pointer;">
-                            Contact Me
-                        </button>
-                    </li>
-                </ul>
-            </nav>
-        </header>
-
-        <!-- Contact Me Modal Popup -->
-        <div id="contactModal" class="fixed inset-0 bg-black/40 backdrop-blur-sm hidden z-50 flex items-center justify-center p-4">
-            <div class="bg-[#FDFBF7] border border-[#E3DEC3] w-full max-w-md p-6 rounded-2xl shadow-xl relative">
-                <button onclick="closeContactModal()" class="absolute top-4 right-4 text-sm text-[#4A5D4E] hover:text-[#3A4A3E] font-bold">✕</button>
-                <h3 class="text-xl font-bold text-[#3A4A3E] mb-4">Get in Touch</h3>
-                <form onsubmit="handleContactSubmit(event)" class="space-y-4">
-                    <div>
-                        <label class="block text-xs font-semibold mb-1 text-[#4A5D4E]">Name</label>
-                        <input type="text" required class="w-full bg-[#FAF7F0] border border-[#E3DEC3] rounded-lg p-2.5 text-sm text-[#3A4A3E] focus:outline-none focus:border-[#C4BC9E]" placeholder="Your name">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-semibold mb-1 text-[#4A5D4E]">Email</label>
-                        <input type="email" required class="w-full bg-[#FAF7F0] border border-[#E3DEC3] rounded-lg p-2.5 text-sm text-[#3A4A3E] focus:outline-none focus:border-[#C4BC9E]" placeholder="your.email@example.com">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-semibold mb-1 text-[#4A5D4E]">Message</label>
-                        <textarea rows="4" required class="w-full bg-[#FAF7F0] border border-[#E3DEC3] rounded-lg p-2.5 text-sm text-[#3A4A3E] focus:outline-none focus:border-[#C4BC9E]" placeholder="Write your message here..."></textarea>
-                    </div>
-                    <button type="submit" class="w-full bg-[#F4F1EA] border border-[#E3DEC3] py-2.5 rounded-lg text-sm font-semibold text-[#3A4A3E] hover:bg-[#E3DEC3] transition-all">Send Message</button>
-                </form>
-            </div>
+      <!-- Flagship -->
+      <section class="bg-[#F4F1EA] p-6 md:p-8 rounded-2xl border border-[#E3DEC3] shadow-sm space-y-5">
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+          <div>
+            <span class="inline-block text-xs font-semibold px-3 py-1 rounded-full bg-[#FAF7F0] border border-[#E3DEC3] text-[#3A4A3E] mb-2">
+              Featured Flagship • AI &amp; Embedded Hardware
+            </span>
+            <h2 class="text-2xl font-bold text-[#3A4A3E]">OMNI — Personal AI Hardware Assistant</h2>
+            <p class="text-xs text-[#6A7A6E] mt-1">FastAPI • PostgreSQL (pgvector) • ESP32-S3 • PlatformIO</p>
+          </div>
+          <a
+            href="https://github.com/fav-emmanuel/Omni"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="self-start sm:self-auto text-xs font-semibold px-4 py-2.5 rounded-xl bg-[#FAF7F0] border border-[#E3DEC3] text-[#3A4A3E] hover:bg-[#EBE6D8] transition"
+          >
+            View Architecture on GitHub →
+          </a>
         </div>
 
-        <!-- Modal JavaScript Control -->
-        <script>
-            function openContactModal() {
-                document.getElementById('contactModal').classList.remove('hidden');
-            }
-            function closeContactModal() {
-                document.getElementById('contactModal').classList.add('hidden');
-            }
-            function handleContactSubmit(e) {
-                e.preventDefault();
-                alert('Thank you for your message! I will get back to you soon.');
-                closeContactModal();
-            }
-        </script>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 items-start">
+          <div class="md:col-span-2 space-y-3 text-sm leading-relaxed">
+            <p>
+              OMNI is a standalone AI personal assistant engineered to bridge cloud intelligence with portable embedded hardware on a Waveshare ESP32-S3 1.75-inch AMOLED round touch display board with rechargeable battery and GPS support.
+            </p>
+            <p>
+              Backed by a Python FastAPI backend and PostgreSQL with <code class="px-1.5 py-0.5 rounded bg-[#FAF7F0] border border-[#E3DEC3] text-xs">pgvector</code>, OMNI supports multi-tier persistent memory, daily logging, device pinging, and an interactive web simulator.
+            </p>
+          </div>
+          <div class="bg-[#FAF7F0] p-4 rounded-xl border border-[#E3DEC3] space-y-2 text-xs">
+            <h3 class="font-bold text-sm text-[#3A4A3E]">Core Capabilities</h3>
+            <ul class="space-y-1.5 text-[#4A5D4E]">
+              <li>• Multi-Tier Memory: Vector-backed recall with PostgreSQL &amp; pgvector.</li>
+              <li>• Life &amp; Habit Logging: Structured tracking for routines and goals.</li>
+              <li>• Embedded Firmware: Custom PlatformIO build for ESP32-S3 AMOLED hardware.</li>
+              <li>• Device Ecosystem: Cross-device pinging and browser simulator.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
 
-        <!-- Main Projects Content -->
-        <main class="space-y-12 pb-16 overflow-hidden">
-            
-            <div class="space-y-4">
-                <h2 class="text-2xl font-bold text-[#3A4A3E]">Projects</h2>
-                <div class="bg-[#F4F1EA] p-6 rounded-2xl border border-[#E3DEC3] shadow-sm w-full">
-                    <h3 class="font-bold text-base text-[#3A4A3E] mb-2">Road to 25 Initiative</h3>
-                    <p class="text-sm leading-relaxed">
-                        Welcome to my 25-project software engineering portfolio. As a software engineering undergraduate, this initiative tracks my hands-on journey designing and deploying production-grade applications across five distinct technical tiers—progressing purposefully from foundational algorithms and utilities up to advanced distributed systems, data pipelines, and machine learning architectures. Click any project card below to launch its dedicated live site and demo.
-                    </p>
-                </div>
-            </div>
+      <!-- TIER 1 -->
+      <section class="space-y-4">
+        <h3 class="text-xl font-semibold text-[#3A4A3E] border-b border-[#E3DEC3] pb-2">Tier 1: Core Algorithms &amp; Utilities</h3>
+        <div class="tier-scroll relative w-full py-2" tabindex="0" aria-label="Tier 1 projects">
+          <div class="animate-marquee flex gap-6">
+            <a href="https://fav-emmanuel.github.io/caesar-cipher/" target="_blank" rel="noopener noreferrer" class="project-card">
+              <div class="project-image-box">Caesar Cipher Preview</div>
+              <div class="project-text-box">
+                <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-[#F4F1EA] w-fit">Tier 1</span>
+                <h4 class="font-bold text-base text-[#3A4A3E]">Caesar Cipher Encoder/Decoder</h4>
+                <p class="text-xs text-[#6A7A6E]">TypeScript</p>
+                <p class="text-xs leading-relaxed">Interactive text encryption and decryption utility with shift key control.</p>
+              </div>
+            </a>
 
-            <!-- Featured Flagship Project: OMNI -->
-            <section class="bg-[#F4F1EA] p-6 md:p-8 rounded-2xl border border-[#E3DEC3] shadow-sm space-y-6 mb-12">
-                <div class="flex flex-col md:flex-row md:justify-between md:items-start gap-4 border-b border-[#E3DEC3] pb-4">
-                    <div>
-                        <span class="text-xs font-semibold px-2.5 py-1 bg-[#FAF7F0] text-[#4A5D4E] rounded-md border border-[#E3DEC3]">Featured Flagship • AI & Embedded Hardware</span>
-                        <h2 class="text-2xl font-bold text-[#3A4A3E] mt-2">OMNI — Personal AI Hardware Assistant</h2>
-                        <p class="text-xs text-[#6A7A6E] mt-1">FastAPI • PostgreSQL (pgvector) • ESP32-S3 • PlatformIO</p>
-                    </div>
-                    <a href="https://github.com/fav-emmanuel/Omni" target="_blank" rel="noopener noreferrer" class="bg-[#FAF7F0] border border-[#E3DEC3] px-4 py-2 rounded-xl text-xs font-semibold text-[#3A4A3E] hover:bg-[#E3DEC3] transition-all w-max">
-                        View Architecture on GitHub →
-                    </a>
-                </div>
+            <a href="https://fav-emmanuel.github.io/password-strength-meter/" target="_blank" rel="noopener noreferrer" class="project-card">
+              <div class="project-image-box">Password Strength Meter Preview</div>
+              <div class="project-text-box">
+                <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-[#F4F1EA] w-fit">Tier 1</span>
+                <h4 class="font-bold text-base text-[#3A4A3E]">Password Strength Meter</h4>
+                <p class="text-xs text-[#6A7A6E]">Python</p>
+                <p class="text-xs leading-relaxed">Algorithmic security analyzer assessing entropy, character sets, and strength.</p>
+              </div>
+            </a>
 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <!-- Main Overview -->
-                    <div class="md:col-span-2 space-y-3 text-sm leading-relaxed text-[#4A5D4E]">
-                        <p>
-                            OMNI is a standalone, all-in-one AI personal assistant engineered from the ground up to bridge cloud intelligence with custom portable hardware. Designed to run on a Waveshare ESP32-S3 1.75-inch AMOLED round touch display board with rechargeable battery and GPS support, OMNI acts as a dedicated daily companion rather than just another browser tab.
-                        </p>
-                        <p>
-                            Powered by a Python FastAPI backend and a PostgreSQL database utilizing <code class="bg-[#FAF7F0] px-1.5 py-0.5 rounded border border-[#E3DEC3] text-xs">pgvector</code>, the system maintains multi-tier persistent memory—allowing it to recall context, log daily meals, workouts, habits, and finances, ping connected devices, and operate seamlessly alongside a full browser simulator.
-                        </p>
-                    </div>
+            <a href="https://fav-emmanuel.github.io/contact-book-dictionary/" target="_blank" rel="noopener noreferrer" class="project-card">
+              <div class="project-image-box">Contact Book Dictionary Preview</div>
+              <div class="project-text-box">
+                <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-[#F4F1EA] w-fit">Tier 1</span>
+                <h4 class="font-bold text-base text-[#3A4A3E]">Contact Book Dictionary</h4>
+                <p class="text-xs text-[#6A7A6E]">SQL + Python</p>
+                <p class="text-xs leading-relaxed">Structured directory for adding, searching, and managing contact records.</p>
+              </div>
+            </a>
 
-                    <!-- Key Capabilities Box -->
-                    <div class="bg-[#FAF7F0] p-5 rounded-xl border border-[#E3DEC3] space-y-3">
-                        <h3 class="font-bold text-sm text-[#3A4A3E]">Core Capabilities</h3>
-                        <ul class="space-y-2 text-xs text-[#4A5D4E]">
-                            <li class="flex items-start gap-2">
-                                <span class="text-[#3A4A3E] font-bold">•</span>
-                                <span><strong>Multi-Tier Memory:</strong> Vector-backed long-term recall with PostgreSQL & pgvector.</span>
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <span class="text-[#3A4A3E] font-bold">•</span>
-                                <span><strong>Life & Habit Logging:</strong> Structured tracking for nutrition, workouts, and finances.</span>
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <span class="text-[#3A4A3E] font-bold">•</span>
-                                <span><strong>Embedded Firmware:</strong> Custom PlatformIO build for ESP32-S3 AMOLED touch hardware.</span>
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <span class="text-[#3A4A3E] font-bold">•</span>
-                                <span><strong>Device Ecosystem:</strong> Cross-device pinging and an interactive web simulator.</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
+            <a href="https://fav-emmanuel.github.io/csv-report-parser/" target="_blank" rel="noopener noreferrer" class="project-card">
+              <div class="project-image-box">CSV Report Parser Preview</div>
+              <div class="project-text-box">
+                <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-[#F4F1EA] w-fit">Tier 1</span>
+                <h4 class="font-bold text-base text-[#3A4A3E]">CSV Report Parser</h4>
+                <p class="text-xs text-[#6A7A6E]">Python</p>
+                <p class="text-xs leading-relaxed">Data parser for inspecting CSV columns, rows, and numeric summaries.</p>
+              </div>
+            </a>
 
-            <!-- TIER 1 -->
-            <section class="space-y-4">
-                <h3 class="text-xl font-semibold text-[#3A4A3E] border-b border-[#E3DEC3] pb-2">Tier 1: Core Algorithms & Utilities</h3>
-                <div class="relative overflow-hidden w-full py-2">
-                    <div class="animate-marquee flex gap-8">
-                        <a href="https://fav-emmanuel.github.io/caesar-cipher/" target="_blank" rel="noopener noreferrer" class="project-group block no-underline">
-                            <div class="project-image-box">Wider Project Display Image</div>
-                            <div class="project-text-box">
-                                <span class="text-xs font-semibold px-2.5 py-1 bg-[#FAF7F0] text-[#4A5D4E] rounded-md border border-[#E3DEC3] w-max">Tier 1</span>
-                                <h4 class="font-bold text-lg text-[#3A4A3E]">Caesar Cipher Encoder/Decoder</h4>
-                                <p class="text-xs text-[#6A7A6E]">TypeScript</p>
-                                <p class="text-sm leading-relaxed">Interactive text encryption and decryption utility tool.</p>
-                            </div>
-                        </a>
-                        <a href="https://fav-emmanuel.github.io/password-strength-meter/" target="_blank" rel="noopener noreferrer" class="project-group block no-underline">
-                            <div class="project-image-box">Wider Project Display Image</div>
-                            <div class="project-text-box">
-                                <span class="text-xs font-semibold px-2.5 py-1 bg-[#FAF7F0] text-[#4A5D4E] rounded-md border border-[#E3DEC3] w-max">Tier 1</span>
-                                <h4 class="font-bold text-lg text-[#3A4A3E]">Password Strength Meter</h4>
-                                <p class="text-xs text-[#6A7A6E]">Python</p>
-                                <p class="text-sm leading-relaxed">Algorithmic security analyzer assessing entropy and resilience.</p>
-                            </div>
-                        </a>
-                        <a href="https://fav-emmanuel.github.io/contact-book-dictionary/" target="_blank" rel="noopener noreferrer" class="project-group block no-underline">
-                            <div class="project-image-box">Wider Project Display Image</div>
-                            <div class="project-text-box">
-                                <span class="text-xs font-semibold px-2.5 py-1 bg-[#FAF7F0] text-[#4A5D4E] rounded-md border border-[#E3DEC3] w-max">Tier 1</span>
-                                <h4 class="font-bold text-lg text-[#3A4A3E]">Contact Book Dictionary</h4>
-                                <p class="text-xs text-[#6A7A6E]">SQL + Python</p>
-                                <p class="text-sm leading-relaxed">Structured database dictionary for managing and querying contacts.</p>
-                            </div>
-                        </a>
-                        <a href="https://fav-emmanuel.github.io/csv-report-parser/" target="_blank" rel="noopener noreferrer" class="project-group block no-underline">
-                            <div class="project-image-box">Wider Project Display Image</div>
-                            <div class="project-text-box">
-                                <span class="text-xs font-semibold px-2.5 py-1 bg-[#FAF7F0] text-[#4A5D4E] rounded-md border border-[#E3DEC3] w-max">Tier 1</span>
-                                <h4 class="font-bold text-lg text-[#3A4A3E]">CSV Report Parser</h4>
-                                <p class="text-xs text-[#6A7A6E]">Python</p>
-                                <p class="text-sm leading-relaxed">High-performance data parser for automated report generation.</p>
-                            </div>
-                        </a>
-                        <a href="https://fav-emmanuel.github.io/habit-tracker-cli/" target="_blank" rel="noopener noreferrer" class="project-group block no-underline">
-                            <div class="project-image-box">Wider Project Display Image</div>
-                            <div class="project-text-box">
-                                <span class="text-xs font-semibold px-2.5 py-1 bg-[#FAF7F0] text-[#4A5D4E] rounded-md border border-[#E3DEC3] w-max">Tier 1</span>
-                                <h4 class="font-bold text-lg text-[#3A4A3E]">Habit Tracker CLI</h4>
-                                <p class="text-xs text-[#6A7A6E]">TypeScript</p>
-                                <p class="text-sm leading-relaxed">Command-line interface tool for tracking daily habits and streaks.</p>
-                            </div>
-                        </a>
-                        <!-- Duplicate Set for Seamless Loop -->
-                        <a href="https://fav-emmanuel.github.io/caesar-cipher/" target="_blank" rel="noopener noreferrer" class="project-group block no-underline">
-                            <div class="project-image-box">Wider Project Display Image</div>
-                            <div class="project-text-box">
-                                <span class="text-xs font-semibold px-2.5 py-1 bg-[#FAF7F0] text-[#4A5D4E] rounded-md border border-[#E3DEC3] w-max">Tier 1</span>
-                                <h4 class="font-bold text-lg text-[#3A4A3E]">Caesar Cipher Encoder/Decoder</h4>
-                                <p class="text-xs text-[#6A7A6E]">TypeScript</p>
-                                <p class="text-sm leading-relaxed">Interactive text encryption and decryption utility tool.</p>
-                            </div>
-                        </a>
-                        <a href="https://fav-emmanuel.github.io/password-strength-meter/" target="_blank" rel="noopener noreferrer" class="project-group block no-underline">
-                            <div class="project-image-box">Wider Project Display Image</div>
-                            <div class="project-text-box">
-                                <span class="text-xs font-semibold px-2.5 py-1 bg-[#FAF7F0] text-[#4A5D4E] rounded-md border border-[#E3DEC3] w-max">Tier 1</span>
-                                <h4 class="font-bold text-lg text-[#3A4A3E]">Password Strength Meter</h4>
-                                <p class="text-xs text-[#6A7A6E]">Python</p>
-                                <p class="text-sm leading-relaxed">Algorithmic security analyzer assessing entropy and resilience.</p>
-                            </div>
-                        </a>
-                        <a href="https://fav-emmanuel.github.io/contact-book-dictionary/" target="_blank" rel="noopener noreferrer" class="project-group block no-underline">
-                            <div class="project-image-box">Wider Project Display Image</div>
-                            <div class="project-text-box">
-                                <span class="text-xs font-semibold px-2.5 py-1 bg-[#FAF7F0] text-[#4A5D4E] rounded-md border border-[#E3DEC3] w-max">Tier 1</span>
-                                <h4 class="font-bold text-lg text-[#3A4A3E]">Contact Book Dictionary</h4>
-                                <p class="text-xs text-[#6A7A6E]">SQL + Python</p>
-                                <p class="text-sm leading-relaxed">Structured database dictionary for managing and querying contacts.</p>
-                            </div>
-                        </a>
-                        <a href="https://fav-emmanuel.github.io/csv-report-parser/" target="_blank" rel="noopener noreferrer" class="project-group block no-underline">
-                            <div class="project-image-box">Wider Project Display Image</div>
-                            <div class="project-text-box">
-                                <span class="text-xs font-semibold px-2.5 py-1 bg-[#FAF7F0] text-[#4A5D4E] rounded-md border border-[#E3DEC3] w-max">Tier 1</span>
-                                <h4 class="font-bold text-lg text-[#3A4A3E]">CSV Report Parser</h4>
-                                <p class="text-xs text-[#6A7A6E]">Python</p>
-                                <p class="text-sm leading-relaxed">High-performance data parser for automated report generation.</p>
-                            </div>
-                        </a>
-                        <a href="https://fav-emmanuel.github.io/habit-tracker-cli/" target="_blank" rel="noopener noreferrer" class="project-group block no-underline">
-                            <div class="project-image-box">Wider Project Display Image</div>
-                            <div class="project-text-box">
-                                <span class="text-xs font-semibold px-2.5 py-1 bg-[#FAF7F0] text-[#4A5D4E] rounded-md border border-[#E3DEC3] w-max">Tier 1</span>
-                                <h4 class="font-bold text-lg text-[#3A4A3E]">Habit Tracker CLI</h4>
-                                <p class="text-xs text-[#6A7A6E]">TypeScript</p>
-                                <p class="text-sm leading-relaxed">Command-line interface tool for tracking daily habits and streaks.</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </section>
+            <a href="https://fav-emmanuel.github.io/habit-tracker-cli/" target="_blank" rel="noopener noreferrer" class="project-card">
+              <div class="project-image-box">Habit Tracker CLI Preview</div>
+              <div class="project-text-box">
+                <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-[#F4F1EA] w-fit">Tier 1</span>
+                <h4 class="font-bold text-base text-[#3A4A3E]">Habit Tracker CLI</h4>
+                <p class="text-xs text-[#6A7A6E]">TypeScript</p>
+                <p class="text-xs leading-relaxed">Habit and streak tracker with weekly goals, filters, and CLI commands.</p>
+              </div>
+            </a>
 
-            <!-- TIER 2 -->
-            <section class="space-y-4">
-                <h3 class="text-xl font-semibold text-[#3A4A3E] border-b border-[#E3DEC3] pb-2">Tier 2: Simulators & Trackers</h3>
-                <div class="relative overflow-hidden w-full py-2">
-                    <div class="animate-marquee flex gap-8">
-                        <a href="https://fav-emmanuel.github.io/bank-account-simulator/" target="_blank" rel="noopener noreferrer" class="project-group block no-underline">
-                            <div class="project-image-box">Wider Project Display Image</div>
-                            <div class="project-text-box">
-                                <span class="text-xs font-semibold px-2.5 py-1 bg-[#FAF7F0] text-[#4A5D4E] rounded-md border border-[#E3DEC3] w-max">Tier 2</span>
-                                <h4 class="font-bold text-lg text-[#3A4A3E]">Bank Account Simulator</h4>
-                                <p class="text-xs text-[#6A7A6E]">TypeScript • OOP</p>
-                                <p class="text-sm leading-relaxed">Object-oriented financial ledger managing transactions and accounts.</p>
-                            </div>
-                        </a>
-                        <a href="https://fav-emmanuel.github.io/book-price-tracker/" target="_blank" rel="noopener noreferrer" class="project-group block no-underline">
-                            <div class="project-image-box">Wider Project Display Image</div>
-                            <div class="project-text-box">
-                                <span class="text-xs font-semibold px-2.5 py-1 bg-[#FAF7F0] text-[#4A5D4E] rounded-md border border-[#E3DEC3] w-max">Tier 2</span>
-                                <h4 class="font-bold text-lg text-[#3A4A3E]">Book Price Tracker with Alerts</h4>
-                                <p class="text-xs text-[#6A7A6E]">Python</p>
-                                <p class="text-sm leading-relaxed">Automated literature price monitor dispatching threshold notifications.</p>
-                            </div>
-                        </a>
-                        <a href="https://fav-emmanuel.github.io/personal-expense-tracker/" target="_blank" rel="noopener noreferrer" class="project-group block no-underline">
-                            <div class="project-image-box">Wider Project Display Image</div>
-                            <div class="project-text-box">
-                                <span class="text-xs font-semibold px-2.5 py-1 bg-[#FAF7F0] text-[#4A5D4E] rounded-md border border-[#E3DEC3] w-max">Tier 2</span>
-                                <h4 class="font-bold text-lg text-[#3A4A3E]">Personal Expense Tracker with SQLite</h4>
-                                <p class="text-xs text-[#6A7A6E]">Python + SQLite</p>
-                                <p class="text-sm leading-relaxed">Local relational database application logging cash flow and expenses.</p>
-                            </div>
-                        </a>
-                        <a href="https://fav-emmanuel.github.io/pomodoro-timer-gui/" target="_blank" rel="noopener noreferrer" class="project-group block no-underline">
-                            <div class="project-image-box">Wider Project Display Image</div>
-                            <div class="project-text-box">
-                                <span class="text-xs font-semibold px-2.5 py-1 bg-[#FAF7F0] text-[#4A5D4E] rounded-md border border-[#E3DEC3] w-max">Tier 2</span>
-                                <h4 class="font-bold text-lg text-[#3A4A3E]">Pomodoro Productivity Timer GUI</h4>
-                                <p class="text-xs text-[#6A7A6E]">TypeScript</p>
-                                <p class="text-sm leading-relaxed">Desktop graphical timer utility for focused study and work intervals.</p>
-                            </div>
-                        </a>
-                        <a href="https://fav-emmanuel.github.io/weather-dashboard/" target="_blank" rel="noopener noreferrer" class="project-group block no-underline">
-                            <div class="project-image-box">Wider Project Display Image</div>
-                            <div class="project-text-box">
-                                <span class="text-xs font-semibold px-2.5 py-1 bg-[#FAF7F0] text-[#4A5D4E] rounded-md border border-[#E3DEC3] w-max">Tier 2</span>
-                                <h4 class="font-bold text-lg text-[#3A4A3E]">REST API Weather Dashboard</h4>
-                                <p class="text-xs text-[#6A7A6E]">TypeScript</p>
-                                <p class="text-sm leading-relaxed">Interactive weather forecast widget querying live third-party endpoints.</p>
-                            </div>
-                        </a>
-                        <!-- Duplicate Set -->
-                        <a href="https://fav-emmanuel.github.io/bank-account-simulator/" target="_blank" rel="noopener noreferrer" class="project-group block no-underline">
-                            <div class="project-image-box">Wider Project Display Image</div>
-                            <div class="project-text-box">
-                                <span class="text-xs font-semibold px-2.5 py-1 bg-[#FAF7F0] text-[#4A5D4E] rounded-md border border-[#E3DEC3] w-max">Tier 2</span>
-                                <h4 class="font-bold text-lg text-[#3A4A3E]">Bank Account Simulator</h4>
-                                <p class="text-xs text-[#6A7A6E]">TypeScript • OOP</p>
-                                <p class="text-sm leading-relaxed">Object-oriented financial ledger managing transactions and accounts.</p>
-                            </div>
-                        </a>
-                        <a href="https://fav-emmanuel.github.io/book-price-tracker/" target="_blank" rel="noopener noreferrer" class="project-group block no-underline">
-                            <div class="project-image-box">Wider Project Display Image</div>
-                            <div class="project-text-box">
-                                <span class="text-xs font-semibold px-2.5 py-1 bg-[#FAF7F0] text-[#4A5D4E] rounded-md border border-[#E3DEC3] w-max">Tier 2</span>
-                                <h4 class="font-bold text-lg text-[#3A4A3E]">Book Price Tracker with Alerts</h4>
-                                <p class="text-xs text-[#6A7A6E]">Python</p>
-                                <p class="text-sm leading-relaxed">Automated literature price monitor dispatching threshold notifications.</p>
-                            </div>
-                        </a>
-                        <a href="https://fav-emmanuel.github.io/personal-expense-tracker/" target="_blank" rel="noopener noreferrer" class="project-group block no-underline">
-                            <div class="project-image-box">Wider Project Display Image</div>
-                            <div class="project-text-box">
-                                <span class="text-xs font-semibold px-2.5 py-1 bg-[#FAF7F0] text-[#4A5D4E] rounded-md border border-[#E3DEC3] w-max">Tier 2</span>
-                                <h4 class="font-bold text-lg text-[#3A4A3E]">Personal Expense Tracker with SQLite</h4>
-                                <p class="text-xs text-[#6A7A6E]">Python + SQLite</p>
-                                <p class="text-sm leading-relaxed">Local relational database application logging cash flow and expenses.</p>
-                            </div>
-                        </a>
-                        <a href="https://fav-emmanuel.github.io/pomodoro-timer-gui/" target="_blank" rel="noopener noreferrer" class="project-group block no-underline">
-                            <div class="project-image-box">Wider Project Display Image</div>
-                            <div class="project-text-box">
-                                <span class="text-xs font-semibold px-2.5 py-1 bg-[#FAF7F0] text-[#4A5D4E] rounded-md border border-[#E3DEC3] w-max">Tier 2</span>
-                                <h4 class="font-bold text-lg text-[#3A4A3E]">Pomodoro Productivity Timer GUI</h4>
-                                <p class="text-xs text-[#6A7A6E]">TypeScript</p>
-                                <p class="text-sm leading-relaxed">Desktop graphical timer utility for focused study and work intervals.</p>
-                            </div>
-                        </a>
-                        <a href="https://fav-emmanuel.github.io/weather-dashboard/" target="_blank" rel="noopener noreferrer" class="project-group block no-underline">
-                            <div class="project-image-box">Wider Project Display Image</div>
-                            <div class="project-text-box">
-                                <span class="text-xs font-semibold px-2.5 py-1 bg-[#FAF7F0] text-[#4A5D4E] rounded-md border border-[#E3DEC3] w-max">Tier 2</span>
-                                <h4 class="font-bold text-lg text-[#3A4A3E]">REST API Weather Dashboard</h4>
-                                <p class="text-xs text-[#6A7A6E]">TypeScript</p>
-                                <p class="text-sm leading-relaxed">Interactive weather forecast widget querying live third-party endpoints.</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </section>
+            <!-- Duplicate set for continuous loop -->
+            <a href="https://fav-emmanuel.github.io/caesar-cipher/" target="_blank" rel="noopener noreferrer" class="project-card" aria-hidden="true">
+              <div class="project-image-box">Caesar Cipher Preview</div>
+              <div class="project-text-box">
+                <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-[#F4F1EA] w-fit">Tier 1</span>
+                <h4 class="font-bold text-base text-[#3A4A3E]">Caesar Cipher Encoder/Decoder</h4>
+                <p class="text-xs text-[#6A7A6E]">TypeScript</p>
+                <p class="text-xs leading-relaxed">Interactive text encryption and decryption utility with shift key control.</p>
+              </div>
+            </a>
 
-            <!-- TIER 3 -->
-            <section class="space-y-4">
-                <h3 class="text-xl font-semibold text-[#3A4A3E] border-b border-[#E3DEC3] pb-2">Tier 3: Full-Stack & Enterprise Integrations</h3>
-                <div class="relative overflow-hidden w-full py-2">
-                    <div class="animate-marquee flex gap-8">
-                        <a href="https://fav-emmanuel.github.io/discord-moderation-bot/" target="_blank" rel="noopener noreferrer" class="project-group block no-underline">
-                            <div class="project-image-box">Wider Project Display Image</div>
-                            <div class="project-text-box">
-                                <span class="text-xs font-semibold px-2.5 py-1 bg-[#FAF7F0] text-[#4A5D4E] rounded-md border border-[#E3DEC3] w-max">Tier 3</span>
-                                <h4 class="font-bold text-lg text-[#3A4A3E]">Discord Moderation Bot</h4>
-                                <p class="text-xs text-[#6A7A6E]">TypeScript + Discord.js</p>
-                                <p class="text-sm leading-relaxed">Automated community management and chat moderation bot.</p>
-                            </div>
-                        </a>
-                        <a href="https://fav-emmanuel.github.io/fullstack-todo-app/" target="_blank" rel="noopener noreferrer" class="project-group block no-underline">
-                            <div class="project-image-box">Wider Project Display Image</div>
-                            <div class="project-text-box">
-                                <span class="text-xs font-semibold px-2.5 py-1 bg-[#FAF7F0] text-[#4A5D4E] rounded-md border border-[#E3DEC3] w-max">Tier 3</span>
-                                <h4 class="font-bold text-lg text-[#3A4A3E]">Full-Stack Todo Application</h4>
-                                <p class="text-xs text-[#6A7A6E]">TypeScript (Next.js) + React</p>
-                                <p class="text-sm leading-relaxed">Persistent task manager with user authentication and dynamic UI.</p>
-                            </div>
-                        </a>
-                        <a href="https://fav-emmanuel.github.io/pandas-financial-analyzer/" target="_blank" rel="noopener noreferrer" class="project-group block no-underline">
-                            <div class="project-image-box">Wider Project Display Image</div>
-                            <div class="project-text-box">
-                                <span class="text-xs font-semibold px-2.5 py-1 bg-[#FAF7F0] text-[#4A5D4E] rounded-md border border-[#E3DEC3] w-max">Tier 3</span>
-                                <h4 class="font-bold text-lg text-[#3A4A3E]">Pandas Financial Statement Analyzer</h4>
-                                <p class="text-xs text-[#6A7A6E]">Python + Pandas</p>
-                                <p class="text-sm leading-relaxed">Automated spreadsheet data parser and financial metric calculator.</p>
-                            </div>
-                        </a>
-                        <a href="https://fav-emmanuel.github.io/pytest-docker-webapp/" target="_blank" rel="noopener noreferrer" class="project-group block no-underline">
-                            <div class="project-image-box">Wider Project Display Image</div>
-                            <div class="project-text-box">
-                                <span class="text-xs font-semibold px-2.5 py-1 bg-[#FAF7F0] text-[#4A5D4E] rounded-md border border-[#E3DEC3] w-max">Tier 3</span>
-                                <h4 class="font-bold text-lg text-[#3A4A3E]">Pytest & Dockerized Web App</h4>
-                                <p class="text-xs text-[#6A7A6E]">Docker + Pytest + Python</p>
-                                <p class="text-sm leading-relaxed">Containerized web service packaged with automated unit test suites.</p>
-                            </div>
-                        </a>
-                        <a href="https://fav-emmanuel.github.io/jwt-auth-service/" target="_blank" rel="noopener noreferrer" class="project-group block no-underline">
-                            <div class="project-image-box">Wider Project Display Image</div>
-                            <div class="project-text-box">
-                                <span class="text-xs font-semibold px-2.5 py-1 bg-[#FAF7F0] text-[#4A5D4E] rounded-md border border-[#E3DEC3] w-max">Tier 3</span>
-                                <h4 class="font-bold text-lg text-[#3A4A3E]">User Auth Service with JWT</h4>
-                                <p class="text-xs text-[#6A7A6E]">Node.js + TypeScript + JWT</p>
-                                <p class="text-sm leading-relaxed">Secure token-based authentication and authorization microservice.</p>
-                            </div>
-                        </a>
-                        <!-- Duplicate Set -->
-                        <a href="https://fav-emmanuel.github.io/discord-moderation-bot/" target="_blank" rel="noopener noreferrer" class="project-group block no-underline">
-                            <div class="project-image-box">Wider Project Display Image</div>
-                            <div class="project-text-box">
-                                <span class="text-xs font-semibold px-2.5 py-1 bg-[#FAF7F0] text-[#4A5D4E] rounded-md border border-[#E3DEC3] w-max">Tier 3</span>
-                                <h4 class="font-bold text-lg text-[#3A4A3E]">Discord Moderation Bot</h4>
-                                <p class="text-xs text-[#6A7A6E]">TypeScript + Discord.js</p>
-                                <p class="text-sm leading-relaxed">Automated community management and chat moderation bot.</p>
-                            </div>
-                        </a>
-                        <a href="https://fav-emmanuel.github.io/fullstack-todo-app/" target="_blank" rel="noopener noreferrer" class="project-group block no-underline">
-                            <div class="project-image-box">Wider Project Display Image</div>
-                            <div class="project-text-box">
-                                <span class="text-xs font-semibold px-2.5 py-1 bg-[#FAF7F0] text-[#4A5D4E] rounded-md border border-[#E3DEC3] w-max">Tier 3</span>
-                                <h4 class="font-bold text-lg text-[#3A4A3E]">Full-Stack Todo Application</h4>
-                                <p class="text-xs text-[#6A7A6E]">TypeScript (Next.js) + React</p>
-                                <p class="text-sm leading-relaxed">Persistent task manager with user authentication and dynamic UI.</p>
-                            </div>
-                        </a>
-                        <a href="https://fav-emmanuel.github.io/pandas-financial-analyzer/" target="_blank" rel="noopener noreferrer" class="project-group block no-underline">
-                            <div class="project-image-box">Wider Project Display Image</div>
-                            <div class="project-text-box">
-                                <span class="text-xs font-semibold px-2.5 py-1 bg-[#FAF7F0] text-[#4A5D4E] rounded-md border border-[#E3DEC3] w-max">Tier 3</span>
-                                <h4 class="font-bold text-lg text-[#3A4A3E]">Pandas Financial Statement Analyzer</h4>
-                                <p class="text-xs text-[#6A7A6E]">Python + Pandas</p>
-                                <p class="text-sm leading-relaxed">Automated spreadsheet data parser and financial metric calculator.</p>
-                            </div>
-                        </a>
-                        <a href="https://fav-emmanuel.github.io/pytest-docker-webapp/" target="_blank" rel="noopener noreferrer" class="project-group block no-underline">
-                            <div class="project-image-box">Wider Project Display Image</div>
-                            <div class="project-text-box">
-                                <span class="text-xs font-semibold px-2.5 py-1 bg-[#FAF7F0] text-[#4A5D4E] rounded-md border border-[#E3DEC3] w-max">Tier 3</span>
-                                <h4 class="font-bold text-lg text-[#3A4A3E]">Pytest & Dockerized Web App</h4>
-                                <p class="text-xs text-[#6A7A6E]">Docker + Pytest + Python</p>
-                                <p class="text-sm leading-relaxed">Containerized web service packaged with automated unit test suites.</p>
-                            </div>
-                        </a>
-                        <a href="https://fav-emmanuel.github.io/jwt-auth-service/" target="_blank" rel="noopener noreferrer" class="project-group block no-underline">
-                            <div class="project-image-box">Wider Project Display Image</div>
-                            <div class="project-text-box">
-                                <span class="text-xs font-semibold px-2.5 py-1 bg-[#FAF7F0] text-[#4A5D4E] rounded-md border border-[#E3DEC3] w-max">Tier 3</span>
-                                <h4 class="font-bold text-lg text-[#3A4A3E]">User Auth Service with JWT</h4>
-                                <p class="text-xs text-[#6A7A6E]">Node.js + TypeScript + JWT</p>
-                                <p class="text-sm leading-relaxed">Secure token-based authentication and authorization microservice.</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </section>
+            <a href="https://fav-emmanuel.github.io/password-strength-meter/" target="_blank" rel="noopener noreferrer" class="project-card" aria-hidden="true">
+              <div class="project-image-box">Password Strength Meter Preview</div>
+              <div class="project-text-box">
+                <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-[#F4F1EA] w-fit">Tier 1</span>
+                <h4 class="font-bold text-base text-[#3A4A3E]">Password Strength Meter</h4>
+                <p class="text-xs text-[#6A7A6E]">Python</p>
+                <p class="text-xs leading-relaxed">Algorithmic security analyzer assessing entropy, character sets, and strength.</p>
+              </div>
+            </a>
 
-            <!-- TIER 4 -->
-            <section class="space-y-4">
-                <h3 class="text-xl font-semibold text-[#3A4A3E] border-b border-[#E3DEC3] pb-2">Tier 4: High-Throughput & Pipeline Systems</h3>
-                <div class="relative overflow-hidden w-full py-2">
-                    <div class="animate-marquee flex gap-8">
-                        <a href="https://fav-emmanuel.github.io/async-high-throughput-scraper/" target="_blank" rel="noopener noreferrer" class="project-group block no-underline">
-                            <div class="project-image-box">Wider Project Display Image</div>
-                            <div class="project-text-box">
-                                <span class="text-xs font-semibold px-2.5 py-1 bg-[#FAF7F0] text-[#4A5D4E] rounded-md border border-[#E3DEC3] w-max">Tier 4</span>
-                                <h4 class="font-bold text-lg text-[#3A4A3E]">Asynchronous High-Throughput Scraper</h4>
-                                <p class="text-xs text-[#6A7A6E]">Python + Asyncio + Aiohttp</p>
-                                <p class="text-sm leading-relaxed">Fast concurrent web data extraction tool built for high throughput.</p>
-                            </div>
-                        </a>
-                        <a href="https://fav-emmanuel.github.io/airflow-etl-pipeline/" target="_blank" rel="noopener noreferrer" class="project-group block no-underline">
-                            <div class="project-image-box">Wider Project Display Image</div>
-                            <div class="project-text-box">
-                                <span class="text-xs font-semibold px-2.5 py-1 bg-[#FAF7F0] text-[#4A5D4E] rounded-md border border-[#E3DEC3] w-max">Tier 4</span>
-                                <h4 class="font-bold text-lg text-[#3A4A3E]">ETL Data Pipeline with Airflow</h4>
-                                <p class="text-xs text-[#6A7A6E]">Python + Apache Airflow</p>
-                                <p class="text-sm leading-relaxed">Automated data extraction, transformation, and loading pipeline.</p>
-                            </div>
-                        </a>
-                        <a href="https://fav-emmanuel.github.io/graphql-ecommerce-api/" target="_blank" rel="noopener noreferrer" class="project-group block no-underline">
-                            <div class="project-image-box">Wider Project Display Image</div>
-                            <div class="project-text-box">
-                                <span class="text-xs font-semibold px-2.5 py-1 bg-[#FAF7F0] text-[#4A5D4E] rounded-md border border-[#E3DEC3] w-max">Tier 4</span>
-                                <h4 class="font-bold text-lg text-[#3A4A3E]">GraphQL E-Commerce API Server</h4>
-                                <p class="text-xs text-[#6A7A6E]">TypeScript</p>
-                                <p class="text-sm leading-relaxed">Full-stack database and web application for an online store.</p>
-                            </div>
-                        </a>
-                        <a href="https://fav-emmanuel.github.io/realtime-chat-app/" target="_blank" rel="noopener noreferrer" class="project-group block no-underline">
-                            <div class="project-image-box">Wider Project Display Image</div>
-                            <div class="project-text-box">
-                                <span class="text-xs font-semibold px-2.5 py-1 bg-[#FAF7F0] text-[#4A5D4E] rounded-md border border-[#E3DEC3] w-max">Tier 4</span>
-                                <h4 class="font-bold text-lg text-[#3A4A3E]">Real-time Multi-user Chat App</h4>
-                                <p class="text-xs text-[#6A7A6E]">TypeScript</p>
-                                <p class="text-sm leading-relaxed">Live bidirectional messaging application with instant room updates.</p>
-                            </div>
-                        </a>
-                        <a href="https://fav-emmanuel.github.io/aes256-secure-file-vault/" target="_blank" rel="noopener noreferrer" class="project-group block no-underline">
-                            <div class="project-image-box">Wider Project Display Image</div>
-                            <div class="project-text-box">
-                                <span class="text-xs font-semibold px-2.5 py-1 bg-[#FAF7F0] text-[#4A5D4E] rounded-md border border-[#E3DEC3] w-max">Tier 4</span>
-                                <h4 class="font-bold text-lg text-[#3A4A3E]">Secure File Vault with AES-256</h4>
-                                <p class="text-xs text-[#6A7A6E]">Python • AES-256</p>
-                                <p class="text-sm leading-relaxed">Encrypted file storage and retrieval system with secure key management.</p>
-                            </div>
-                        </a>
-                        <!-- Duplicate Set -->
-                        <a href="https://fav-emmanuel.github.io/async-high-throughput-scraper/" target="_blank" rel="noopener noreferrer" class="project-group block no-underline">
-                            <div class="project-image-box">Wider Project Display Image</div>
-                            <div class="project-text-box">
-                                <span class="text-xs font-semibold px-2.5 py-1 bg-[#FAF7F0] text-[#4A5D4E] rounded-md border border-[#E3DEC3] w-max">Tier 4</span>
-                                <h4 class="font-bold text-lg text-[#3A4A3E]">Asynchronous High-Throughput Scraper</h4>
-                                <p class="text-xs text-[#6A7A6E]">Python + Asyncio + Aiohttp</p>
-                                <p class="text-sm leading-relaxed">Fast concurrent web data extraction tool built for high throughput.</p>
-                            </div>
-                        </a>
-                        <a href="https://fav-emmanuel.github.io/airflow-etl-pipeline/" target="_blank" rel="noopener noreferrer" class="project-group block no-underline">
-                            <div class="project-image-box">Wider Project Display Image</div>
-                            <div class="project-text-box">
-                                <span class="text-xs font-semibold px-2.5 py-1 bg-[#FAF7F0] text-[#4A5D4E] rounded-md border border-[#E3DEC3] w-max">Tier 4</span>
-                                <h4 class="font-bold text-lg text-[#3A4A3E]">ETL Data Pipeline with Airflow</h4>
-                                <p class="text-xs text-[#6A7A6E]">Python + Apache Airflow</p>
-                                <p class="text-sm leading-relaxed">Automated data extraction, transformation, and loading pipeline.</p>
-                            </div>
-                        </a>
-                        <a href="https://fav-emmanuel.github.io/graphql-ecommerce-api/" target="_blank" rel="noopener noreferrer" class="project-group block no-underline">
-                            <div class="project-image-box">Wider Project Display Image</div>
-                            <div class="project-text-box">
-                                <span class="text-xs font-semibold px-2.5 py-1 bg-[#FAF7F0] text-[#4A5D4E] rounded-md border border-[#E3DEC3] w-max">Tier 4</span>
-                                <h4 class="font-bold text-lg text-[#3A4A3E]">GraphQL E-Commerce API Server</h4>
-                                <p class="text-xs text-[#6A7A6E]">TypeScript</p>
-                                <p class="text-sm leading-relaxed">Full-stack database and web application for an online store.</p>
-                            </div>
-                        </a>
-                        <a href="https://fav-emmanuel.github.io/realtime-chat-app/" target="_blank" rel="noopener noreferrer" class="project-group block no-underline">
-                            <div class="project-image-box">Wider Project Display Image</div>
-                            <div class="project-text-box">
-                                <span class="text-xs font-semibold px-2.5 py-1 bg-[#FAF7F0] text-[#4A5D4E] rounded-md border border-[#E3DEC3] w-max">Tier 4</span>
-                                <h4 class="font-bold text-lg text-[#3A4A3E]">Real-time Multi-user Chat App</h4>
-                                <p class="text-xs text-[#6A7A6E]">TypeScript</p>
-                                <p class="text-sm leading-relaxed">Live bidirectional messaging application with instant room updates.</p>
-                            </div>
-                        </a>
-                        <a href="https://fav-emmanuel.github.io/aes256-secure-file-vault/" target="_blank" rel="noopener noreferrer" class="project-group block no-underline">
-                            <div class="project-image-box">Wider Project Display Image</div>
-                            <div class="project-text-box">
-                                <span class="text-xs font-semibold px-2.5 py-1 bg-[#FAF7F0] text-[#4A5D4E] rounded-md border border-[#E3DEC3] w-max">Tier 4</span>
-                                <h4 class="font-bold text-lg text-[#3A4A3E]">Secure File Vault with AES-256</h4>
-                                <p class="text-xs text-[#6A7A6E]">Python • AES-256</p>
-                                <p class="text-sm leading-relaxed">Encrypted file storage and retrieval system with secure key management.</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </section>
+            <a href="https://fav-emmanuel.github.io/contact-book-dictionary/" target="_blank" rel="noopener noreferrer" class="project-card" aria-hidden="true">
+              <div class="project-image-box">Contact Book Dictionary Preview</div>
+              <div class="project-text-box">
+                <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-[#F4F1EA] w-fit">Tier 1</span>
+                <h4 class="font-bold text-base text-[#3A4A3E]">Contact Book Dictionary</h4>
+                <p class="text-xs text-[#6A7A6E]">SQL + Python</p>
+                <p class="text-xs leading-relaxed">Structured directory for adding, searching, and managing contact records.</p>
+              </div>
+            </a>
 
-            <!-- TIER 5 -->
-            <section class="space-y-4">
-                <h3 class="text-xl font-semibold text-[#3A4A3E] border-b border-[#E3DEC3] pb-2">Tier 5: Advanced Systems & Dashboards</h3>
-                <div class="relative overflow-hidden w-full py-2">
-                    <div class="animate-marquee flex gap-8">
-                        <a href="https://fav-emmanuel.github.io/local-rag-search-engine/" target="_blank" rel="noopener noreferrer" class="project-group block no-underline">
-                            <div class="project-image-box">Wider Project Display Image</div>
-                            <div class="project-text-box">
-                                <span class="text-xs font-semibold px-2.5 py-1 bg-[#FAF7F0] text-[#4A5D4E] rounded-md border border-[#E3DEC3] w-max">Tier 5</span>
-                                <h4 class="font-bold text-lg text-[#3A4A3E]">Local RAG Document Search Engine</h4>
-                                <p class="text-xs text-[#6A7A6E]">Python • Vector Embeddings</p>
-                                <p class="text-sm leading-relaxed">Retrieval-augmented generation tool for searching local documentation.</p>
-                            </div>
-                        </a>
-                        <a href="https://fav-emmanuel.github.io/custom-linter-static-analyzer/" target="_blank" rel="noopener noreferrer" class="project-group block no-underline">
-                            <div class="project-image-box">Wider Project Display Image</div>
-                            <div class="project-text-box">
-                                <span class="text-xs font-semibold px-2.5 py-1 bg-[#FAF7F0] text-[#4A5D4E] rounded-md border border-[#E3DEC3] w-max">Tier 5</span>
-                                <h4 class="font-bold text-lg text-[#3A4A3E]">Custom Linter & Static Code Analyzer</h4>
-                                <p class="text-xs text-[#6A7A6E]">TypeScript + API + AST</p>
-                                <p class="text-sm leading-relaxed">Source code syntax and style checker inspecting abstract syntax trees.</p>
-                            </div>
-                        </a>
-                        <a href="https://fav-emmanuel.github.io/aws-go-serverless-microservice/" target="_blank" rel="noopener noreferrer" class="project-group block no-underline">
-                            <div class="project-image-box">Wider Project Display Image</div>
-                            <div class="project-text-box">
-                                <span class="text-xs font-semibold px-2.5 py-1 bg-[#FAF7F0] text-[#4A5D4E] rounded-md border border-[#E3DEC3] w-max">Tier 5</span>
-                                <h4 class="font-bold text-lg text-[#3A4A3E]">Serverless Microservice on AWS</h4>
-                                <p class="text-xs text-[#6A7A6E]">AWS Lambda + Go</p>
-                                <p class="text-sm leading-relaxed">Cloud-native serverless endpoint handling elastic workloads.</p>
-                            </div>
-                        </a>
-                        <a href="https://fav-emmanuel.github.io/hft-trading-backengine/" target="_blank" rel="noopener noreferrer" class="project-group block no-underline">
-                            <div class="project-image-box">Wider Project Display Image</div>
-                            <div class="project-text-box">
-                                <span class="text-xs font-semibold px-2.5 py-1 bg-[#FAF7F0] text-[#4A5D4E] rounded-md border border-[#E3DEC3] w-max">Tier 5</span>
-                                <h4 class="font-bold text-lg text-[#3A4A3E]">High-Frequency Trading Backengine</h4>
-                                <p class="text-xs text-[#6A7A6E]">Python</p>
-                                <p class="text-sm leading-relaxed">Financial market simulation and strategy backtesting engine.</p>
-                            </div>
-                        </a>
-                        <a href="https://fav-emmanuel.github.io/open-source-workflow-engine/" target="_blank" rel="noopener noreferrer" class="project-group block no-underline">
-                            <div class="project-image-box">Wider Project Display Image</div>
-                            <div class="project-text-box">
-                                <span class="text-xs font-semibold px-2.5 py-1 bg-[#FAF7F0] text-[#4A5D4E] rounded-md border border-[#E3DEC3] w-max">Tier 5</span>
-                                <h4 class="font-bold text-lg text-[#3A4A3E]">Open-Source Workflow Engine</h4>
-                                <p class="text-xs text-[#6A7A6E]">TypeScript • Node.js</p>
-                                <p class="text-sm leading-relaxed">Task orchestration and automated dependency execution framework.</p>
-                            </div>
-                        </a>
-                        <!-- Duplicate Set -->
-                        <a href="https://fav-emmanuel.github.io/local-rag-search-engine/" target="_blank" rel="noopener noreferrer" class="project-group block no-underline">
-                            <div class="project-image-box">Wider Project Display Image</div>
-                            <div class="project-text-box">
-                                <span class="text-xs font-semibold px-2.5 py-1 bg-[#FAF7F0] text-[#4A5D4E] rounded-md border border-[#E3DEC3] w-max">Tier 5</span>
-                                <h4 class="font-bold text-lg text-[#3A4A3E]">Local RAG Document Search Engine</h4>
-                                <p class="text-xs text-[#6A7A6E]">Python • Vector Embeddings</p>
-                                <p class="text-sm leading-relaxed">Retrieval-augmented generation tool for searching local documentation.</p>
-                            </div>
-                        </a>
-                        <a href="https://fav-emmanuel.github.io/custom-linter-static-analyzer/" target="_blank" rel="noopener noreferrer" class="project-group block no-underline">
-                            <div class="project-image-box">Wider Project Display Image</div>
-                            <div class="project-text-box">
-                                <span class="text-xs font-semibold px-2.5 py-1 bg-[#FAF7F0] text-[#4A5D4E] rounded-md border border-[#E3DEC3] w-max">Tier 5</span>
-                                <h4 class="font-bold text-lg text-[#3A4A3E]">Custom Linter & Static Code Analyzer</h4>
-                                <p class="text-xs text-[#6A7A6E]">TypeScript + API + AST</p>
-                                <p class="text-sm leading-relaxed">Source code syntax and style checker inspecting abstract syntax trees.</p>
-                            </div>
-                        </a>
-                        <a href="https://fav-emmanuel.github.io/aws-go-serverless-microservice/" target="_blank" rel="noopener noreferrer" class="project-group block no-underline">
-                            <div class="project-image-box">Wider Project Display Image</div>
-                            <div class="project-text-box">
-                                <span class="text-xs font-semibold px-2.5 py-1 bg-[#FAF7F0] text-[#4A5D4E] rounded-md border border-[#E3DEC3] w-max">Tier 5</span>
-                                <h4 class="font-bold text-lg text-[#3A4A3E]">Serverless Microservice on AWS</h4>
-                                <p class="text-xs text-[#6A7A6E]">AWS Lambda + Go</p>
-                                <p class="text-sm leading-relaxed">Cloud-native serverless endpoint handling elastic workloads.</p>
-                            </div>
-                        </a>
-                        <a href="https://fav-emmanuel.github.io/hft-trading-backengine/" target="_blank" rel="noopener noreferrer" class="project-group block no-underline">
-                            <div class="project-image-box">Wider Project Display Image</div>
-                            <div class="project-text-box">
-                                <span class="text-xs font-semibold px-2.5 py-1 bg-[#FAF7F0] text-[#4A5D4E] rounded-md border border-[#E3DEC3] w-max">Tier 5</span>
-                                <h4 class="font-bold text-lg text-[#3A4A3E]">High-Frequency Trading Backengine</h4>
-                                <p class="text-xs text-[#6A7A6E]">Python</p>
-                                <p class="text-sm leading-relaxed">Financial market simulation and strategy backtesting engine.</p>
-                            </div>
-                        </a>
-                        <a href="https://fav-emmanuel.github.io/open-source-workflow-engine/" target="_blank" rel="noopener noreferrer" class="project-group block no-underline">
-                            <div class="project-image-box">Wider Project Display Image</div>
-                            <div class="project-text-box">
-                                <span class="text-xs font-semibold px-2.5 py-1 bg-[#FAF7F0] text-[#4A5D4E] rounded-md border border-[#E3DEC3] w-max">Tier 5</span>
-                                <h4 class="font-bold text-lg text-[#3A4A3E]">Open-Source Workflow Engine</h4>
-                                <p class="text-xs text-[#6A7A6E]">TypeScript • Node.js</p>
-                                <p class="text-sm leading-relaxed">Task orchestration and automated dependency execution framework.</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </section>
+            <a href="https://fav-emmanuel.github.io/csv-report-parser/" target="_blank" rel="noopener noreferrer" class="project-card" aria-hidden="true">
+              <div class="project-image-box">CSV Report Parser Preview</div>
+              <div class="project-text-box">
+                <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-[#F4F1EA] w-fit">Tier 1</span>
+                <h4 class="font-bold text-base text-[#3A4A3E]">CSV Report Parser</h4>
+                <p class="text-xs text-[#6A7A6E]">Python</p>
+                <p class="text-xs leading-relaxed">Data parser for inspecting CSV columns, rows, and numeric summaries.</p>
+              </div>
+            </a>
 
-        </main>
+            <a href="https://fav-emmanuel.github.io/habit-tracker-cli/" target="_blank" rel="noopener noreferrer" class="project-card" aria-hidden="true">
+              <div class="project-image-box">Habit Tracker CLI Preview</div>
+              <div class="project-text-box">
+                <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-[#F4F1EA] w-fit">Tier 1</span>
+                <h4 class="font-bold text-base text-[#3A4A3E]">Habit Tracker CLI</h4>
+                <p class="text-xs text-[#6A7A6E]">TypeScript</p>
+                <p class="text-xs leading-relaxed">Habit and streak tracker with weekly goals, filters, and CLI commands.</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
 
-        <!-- About Me & Tech Stack Section -->
-        <section class="space-y-8 mb-12">
+      <!-- TIER 2 -->
+      <section class="space-y-4">
+        <h3 class="text-xl font-semibold text-[#3A4A3E] border-b border-[#E3DEC3] pb-2">Tier 2: Simulators &amp; Trackers</h3>
+        <div class="tier-scroll relative w-full py-2" tabindex="0" aria-label="Tier 2 projects">
+          <div class="animate-marquee flex gap-6">
+            <a href="https://fav-emmanuel.github.io/bank-account-simulator/" target="_blank" rel="noopener noreferrer" class="project-card">
+              <div class="project-image-box">Bank Account Simulator Preview</div>
+              <div class="project-text-box">
+                <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-[#F4F1EA] w-fit">Tier 2</span>
+                <h4 class="font-bold text-base text-[#3A4A3E]">Bank Account Simulator</h4>
+                <p class="text-xs text-[#6A7A6E]">TypeScript</p>
+                <p class="text-xs leading-relaxed">Account balance, deposits, withdrawals, and transaction history logic.</p>
+              </div>
+            </a>
 
-            <div id="about" class="bg-[#F4F1EA] p-6 rounded-2xl border border-[#E3DEC3] shadow-sm mb-6 md:mb-0">
-                <h2 class="font-bold text-lg text-[#3A4A3E] mb-2">About Me</h2>
-                <div class="space-y-3 text-sm leading-relaxed">
-                    <p>Hello! I’m Favour, a software engineering undergraduate at York St John University with a deep-rooted passion for building, problem-solving, and creative execution.</p>
-                    <p>My journey into technology didn’t start in a traditional vacuum—it grew out of my love for digital media editing and motion design. Spending hours editing videos and working with kinetic typography taught me patience, precision, and an eye for clean aesthetics, which naturally translated into web development and software engineering. I love taking complex, messy problems and breaking them down into structured, elegant solutions.</p>
-                    <p>Rather than just writing code for assignments, I have a habit of building custom programs and automated tools from scratch to solve real friction points in my day-to-day life—whether that's streamlining personal workflows, managing tasks, or experimenting with new full-stack architectures. Through initiatives like my 'Road to 25' portfolio series, I'm constantly pushing my limits across JavaScript, TypeScript, Python, and modern web frameworks to craft software that is as functional as it is polished.</p>
-                </div>
-            </div>
-            
-            <div id="tech-stack" class="bg-[#F4F1EA] p-6 rounded-2xl border border-[#E3DEC3] shadow-sm">
-                <h2 class="font-bold text-lg text-[#3A4A3E] mb-3">Tech Stack</h2>
-                <ul class="space-y-2 text-sm">
-                    <li class="bg-[#FAF7F0] px-3 py-2 rounded-lg border border-[#E3DEC3]">
-                        <strong class="text-[#3A4A3E]">Core Languages:</strong> TypeScript, Python, Go, JavaScript, SQL
-                    </li>
-                    <li class="bg-[#FAF7F0] px-3 py-2 rounded-lg border border-[#E3DEC3]">
-                        <strong class="text-[#3A4A3E]">Frontend & UI:</strong> React, Next.js, Tailwind CSS, HTML5/CSS3
-                    </li>
-                    <li class="bg-[#FAF7F0] px-3 py-2 rounded-lg border border-[#E3DEC3]">
-                        <strong class="text-[#3A4A3E]">Backend & APIs:</strong> FastAPI, Node.js, GraphQL, REST, WebSockets
-                    </li>
-                    <li class="bg-[#FAF7F0] px-3 py-2 rounded-lg border border-[#E3DEC3]">
-                        <strong class="text-[#3A4A3E]">Data, AI & Pipelines:</strong> PostgreSQL (pgvector), SQLite, Pandas, Airflow, RAG
-                    </li>
-                    <li class="bg-[#FAF7F0] px-3 py-2 rounded-lg border border-[#E3DEC3]">
-                        <strong class="text-[#3A4A3E]">Cloud, DevOps & Embedded:</strong> AWS (Lambda), Docker, Pytest, Git, ESP32-S3 (PlatformIO)
-                    </li>
-                </ul>
-            </div>
+            <a href="https://fav-emmanuel.github.io/book-price-tracker/" target="_blank" rel="noopener noreferrer" class="project-card">
+              <div class="project-image-box">Book Price Tracker Preview</div>
+              <div class="project-text-box">
+                <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-[#F4F1EA] w-fit">Tier 2</span>
+                <h4 class="font-bold text-base text-[#3A4A3E]">Book Price Tracker with Alerts</h4>
+                <p class="text-xs text-[#6A7A6E]">Python</p>
+                <p class="text-xs leading-relaxed">Price monitoring workflow tracking book costs and target thresholds.</p>
+              </div>
+            </a>
 
-        </section>
+            <a href="https://fav-emmanuel.github.io/personal-expense-tracker/" target="_blank" rel="noopener noreferrer" class="project-card">
+              <div class="project-image-box">Personal Expense Tracker Preview</div>
+              <div class="project-text-box">
+                <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-[#F4F1EA] w-fit">Tier 2</span>
+                <h4 class="font-bold text-base text-[#3A4A3E]">Personal Expense Tracker</h4>
+                <p class="text-xs text-[#6A7A6E]">SQLite + Python</p>
+                <p class="text-xs leading-relaxed">Spending categorizer and budget tracker backed by structured records.</p>
+              </div>
+            </a>
 
-        <hr class="border-t border-[#E3DEC3] mb-12">
+            <a href="https://fav-emmanuel.github.io/pomodoro-productivity-timer/" target="_blank" rel="noopener noreferrer" class="project-card">
+              <div class="project-image-box">Pomodoro Timer Preview</div>
+              <div class="project-text-box">
+                <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-[#F4F1EA] w-fit">Tier 2</span>
+                <h4 class="font-bold text-base text-[#3A4A3E]">Pomodoro Productivity Timer</h4>
+                <p class="text-xs text-[#6A7A6E]">TypeScript</p>
+                <p class="text-xs leading-relaxed">Focus and break interval timer for structured study and build sprints.</p>
+              </div>
+            </a>
 
-    </div>
+            <a href="https://fav-emmanuel.github.io/rest-api-weather-dashboard/" target="_blank" rel="noopener noreferrer" class="project-card">
+              <div class="project-image-box">Weather Dashboard Preview</div>
+              <div class="project-text-box">
+                <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-[#F4F1EA] w-fit">Tier 2</span>
+                <h4 class="font-bold text-base text-[#3A4A3E]">REST API Weather Dashboard</h4>
+                <p class="text-xs text-[#6A7A6E]">TypeScript</p>
+                <p class="text-xs leading-relaxed">Forecast view displaying temperature, conditions, and API status states.</p>
+              </div>
+            </a>
 
+            <!-- Duplicate set -->
+            <a href="https://fav-emmanuel.github.io/bank-account-simulator/" target="_blank" rel="noopener noreferrer" class="project-card" aria-hidden="true">
+              <div class="project-image-box">Bank Account Simulator Preview</div>
+              <div class="project-text-box">
+                <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-[#F4F1EA] w-fit">Tier 2</span>
+                <h4 class="font-bold text-base text-[#3A4A3E]">Bank Account Simulator</h4>
+                <p class="text-xs text-[#6A7A6E]">TypeScript</p>
+                <p class="text-xs leading-relaxed">Account balance, deposits, withdrawals, and transaction history logic.</p>
+              </div>
+            </a>
+
+            <a href="https://fav-emmanuel.github.io/book-price-tracker/" target="_blank" rel="noopener noreferrer" class="project-card" aria-hidden="true">
+              <div class="project-image-box">Book Price Tracker Preview</div>
+              <div class="project-text-box">
+                <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-[#F4F1EA] w-fit">Tier 2</span>
+                <h4 class="font-bold text-base text-[#3A4A3E]">Book Price Tracker with Alerts</h4>
+                <p class="text-xs text-[#6A7A6E]">Python</p>
+                <p class="text-xs leading-relaxed">Price monitoring workflow tracking book costs and target thresholds.</p>
+              </div>
+            </a>
+
+            <a href="https://fav-emmanuel.github.io/personal-expense-tracker/" target="_blank" rel="noopener noreferrer" class="project-card" aria-hidden="true">
+              <div class="project-image-box">Personal Expense Tracker Preview</div>
+              <div class="project-text-box">
+                <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-[#F4F1EA] w-fit">Tier 2</span>
+                <h4 class="font-bold text-base text-[#3A4A3E]">Personal Expense Tracker</h4>
+                <p class="text-xs text-[#6A7A6E]">SQLite + Python</p>
+                <p class="text-xs leading-relaxed">Spending categorizer and budget tracker backed by structured records.</p>
+              </div>
+            </a>
+
+            <a href="https://fav-emmanuel.github.io/pomodoro-productivity-timer/" target="_blank" rel="noopener noreferrer" class="project-card" aria-hidden="true">
+              <div class="project-image-box">Pomodoro Timer Preview</div>
+              <div class="project-text-box">
+                <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-[#F4F1EA] w-fit">Tier 2</span>
+                <h4 class="font-bold text-base text-[#3A4A3E]">Pomodoro Productivity Timer</h4>
+                <p class="text-xs text-[#6A7A6E]">TypeScript</p>
+                <p class="text-xs leading-relaxed">Focus and break interval timer for structured study and build sprints.</p>
+              </div>
+            </a>
+
+            <a href="https://fav-emmanuel.github.io/rest-api-weather-dashboard/" target="_blank" rel="noopener noreferrer" class="project-card" aria-hidden="true">
+              <div class="project-image-box">Weather Dashboard Preview</div>
+              <div class="project-text-box">
+                <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-[#F4F1EA] w-fit">Tier 2</span>
+                <h4 class="font-bold text-base text-[#3A4A3E]">REST API Weather Dashboard</h4>
+                <p class="text-xs text-[#6A7A6E]">TypeScript</p>
+                <p class="text-xs leading-relaxed">Forecast view displaying temperature, conditions, and API status states.</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- TIER 3 -->
+      <section class="space-y-4">
+        <h3 class="text-xl font-semibold text-[#3A4A3E] border-b border-[#E3DEC3] pb-2">Tier 3: Full-Stack &amp; Applied Systems</h3>
+        <div class="tier-scroll relative w-full py-2" tabindex="0" aria-label="Tier 3 projects">
+          <div class="animate-marquee flex gap-6">
+            <a href="https://fav-emmanuel.github.io/discord-moderation-bot/" target="_blank" rel="noopener noreferrer" class="project-card">
+              <div class="project-image-box">Discord Moderation Bot Preview</div>
+              <div class="project-text-box">
+                <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-[#F4F1EA] w-fit">Tier 3</span>
+                <h4 class="font-bold text-base text-[#3A4A3E]">Discord Moderation Bot</h4>
+                <p class="text-xs text-[#6A7A6E]">TypeScript</p>
+                <p class="text-xs leading-relaxed">Automated moderation rules, command handlers, and audit log workflows.</p>
+              </div>
+            </a>
+
+            <a href="https://fav-emmanuel.github.io/fullstack-todo-app/" target="_blank" rel="noopener noreferrer" class="project-card">
+              <div class="project-image-box">Full-Stack Todo App Preview</div>
+              <div class="project-text-box">
+                <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-[#F4F1EA] w-fit">Tier 3</span>
+                <h4 class="font-bold text-base text-[#3A4A3E]">Full-Stack Todo Application</h4>
+                <p class="text-xs text-[#6A7A6E]">TypeScript</p>
+                <p class="text-xs leading-relaxed">Task manager with priority states, filtering, and persistent storage.</p>
+              </div>
+            </a>
+
+            <a href="https://fav-emmanuel.github.io/pandas-financial-statement-analyzer/" target="_blank" rel="noopener noreferrer" class="project-card">
+              <div class="project-image-box">Financial Statement Analyzer Preview</div>
+              <div class="project-text-box">
+                <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-[#F4F1EA] w-fit">Tier 3</span>
+                <h4 class="font-bold text-base text-[#3A4A3E]">Pandas Financial Statement Analyzer</h4>
+                <p class="text-xs text-[#6A7A6E]">Python</p>
+                <p class="text-xs leading-relaxed">Tabular financial breakdown computing ratios, margins, and period deltas.</p>
+              </div>
+            </a>
+
+            <a href="https://fav-emmanuel.github.io/pytest-dockerized-web-app/" target="_blank" rel="noopener noreferrer" class="project-card">
+              <div class="project-image-box">Dockerized Web App Preview</div>
+              <div class="project-text-box">
+                <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-[#F4F1EA] w-fit">Tier 3</span>
+                <h4 class="font-bold text-base text-[#3A4A3E]">Pytest &amp; Dockerized Web App</h4>
+                <p class="text-xs text-[#6A7A6E]">Python + Docker</p>
+                <p class="text-xs leading-relaxed">Containerized web service paired with automated test coverage.</p>
+              </div>
+            </a>
+
+            <a href="https://fav-emmanuel.github.io/user-auth-service-jwt/" target="_blank" rel="noopener noreferrer" class="project-card">
+              <div class="project-image-box">JWT Auth Service Preview</div>
+              <div class="project-text-box">
+                <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-[#F4F1EA] w-fit">Tier 3</span>
+                <h4 class="font-bold text-base text-[#3A4A3E]">User Auth Service with JWT</h4>
+                <p class="text-xs text-[#6A7A6E]">TypeScript</p>
+                <p class="text-xs leading-relaxed">Authentication flow covering credential validation, tokens, and route guards.</p>
+              </div>
+            </a>
+
+            <!-- Duplicate set -->
+            <a href="https://fav-emmanuel.github.io/discord-moderation-bot/" target="_blank" rel="noopener noreferrer" class="project-card" aria-hidden="true">
+              <div class="project-image-box">Discord Moderation Bot Preview</div>
+              <div class="project-text-box">
+                <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-[#F4F1EA] w-fit">Tier 3</span>
+                <h4 class="font-bold text-base text-[#3A4A3E]">Discord Moderation Bot</h4>
+                <p class="text-xs text-[#6A7A6E]">TypeScript</p>
+                <p class="text-xs leading-relaxed">Automated moderation rules, command handlers, and audit log workflows.</p>
+              </div>
+            </a>
+
+            <a href="https://fav-emmanuel.github.io/fullstack-todo-app/" target="_blank" rel="noopener noreferrer" class="project-card" aria-hidden="true">
+              <div class="project-image-box">Full-Stack Todo App Preview</div>
+              <div class="project-text-box">
+                <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-[#F4F1EA] w-fit">Tier 3</span>
+                <h4 class="font-bold text-base text-[#3A4A3E]">Full-Stack Todo Application</h4>
+                <p class="text-xs text-[#6A7A6E]">TypeScript</p>
+                <p class="text-xs leading-relaxed">Task manager with priority states, filtering, and persistent storage.</p>
+              </div>
+            </a>
+
+            <a href="https://fav-emmanuel.github.io/pandas-financial-statement-analyzer/" target="_blank" rel="noopener noreferrer" class="project-card" aria-hidden="true">
+              <div class="project-image-box">Financial Statement Analyzer Preview</div>
+              <div class="project-text-box">
+                <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-[#F4F1EA] w-fit">Tier 3</span>
+                <h4 class="font-bold text-base text-[#3A4A3E]">Pandas Financial Statement Analyzer</h4>
+                <p class="text-xs text-[#6A7A6E]">Python</p>
+                <p class="text-xs leading-relaxed">Tabular financial breakdown computing ratios, margins, and period deltas.</p>
+              </div>
+            </a>
+
+            <a href="https://fav-emmanuel.github.io/pytest-dockerized-web-app/" target="_blank" rel="noopener noreferrer" class="project-card" aria-hidden="true">
+              <div class="project-image-box">Dockerized Web App Preview</div>
+              <div class="project-text-box">
+                <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-[#F4F1EA] w-fit">Tier 3</span>
+                <h4 class="font-bold text-base text-[#3A4A3E]">Pytest &amp; Dockerized Web App</h4>
+                <p class="text-xs text-[#6A7A6E]">Python + Docker</p>
+                <p class="text-xs leading-relaxed">Containerized web service paired with automated test coverage.</p>
+              </div>
+            </a>
+
+            <a href="https://fav-emmanuel.github.io/user-auth-service-jwt/" target="_blank" rel="noopener noreferrer" class="project-card" aria-hidden="true">
+              <div class="project-image-box">JWT Auth Service Preview</div>
+              <div class="project-text-box">
+                <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-[#F4F1EA] w-fit">Tier 3</span>
+                <h4 class="font-bold text-base text-[#3A4A3E]">User Auth Service with JWT</h4>
+                <p class="text-xs text-[#6A7A6E]">TypeScript</p>
+                <p class="text-xs leading-relaxed">Authentication flow covering credential validation, tokens, and route guards.</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- TIER 4 -->
+      <section class="space-y-4">
+        <h3 class="text-xl font-semibold text-[#3A4A3E] border-b border-[#E3DEC3] pb-2">Tier 4: Data Pipelines, APIs &amp; Security</h3>
+        <div class="tier-scroll relative w-full py-2" tabindex="0" aria-label="Tier 4 projects">
+          <div class="animate-marquee flex gap-6">
+            <a href="https://fav-emmanuel.github.io/async-high-throughput-scraper/" target="_blank" rel="noopener noreferrer" class="project-card">
+              <div class="project-image-box">Async Scraper Preview</div>
+              <div class="project-text-box">
+                <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-[#F4F1EA] w-fit">Tier 4</span>
+                <h4 class="font-bold text-base text-[#3A4A3E]">Async High-Throughput Scraper</h4>
+                <p class="text-xs text-[#6A7A6E]">Python</p>
+                <p class="text-xs leading-relaxed">Concurrent collection pipeline with rate limiting and retry handling.</p>
+              </div>
+            </a>
+
+            <a href="https://fav-emmanuel.github.io/etl-data-pipeline-airflow/" target="_blank" rel="noopener noreferrer" class="project-card">
+              <div class="project-image-box">Airflow ETL Pipeline Preview</div>
+              <div class="project-text-box">
+                <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-[#F4F1EA] w-fit">Tier 4</span>
+                <h4 class="font-bold text-base text-[#3A4A3E]">ETL Data Pipeline with Airflow</h4>
+                <p class="text-xs text-[#6A7A6E]">Python + Airflow</p>
+                <p class="text-xs leading-relaxed">Scheduled DAG stages extracting, transforming, and loading datasets.</p>
+              </div>
+            </a>
+
+            <a href="https://fav-emmanuel.github.io/graphql-ecommerce-api/" target="_blank" rel="noopener noreferrer" class="project-card">
+              <div class="project-image-box">GraphQL E-Commerce API Preview</div>
+              <div class="project-text-box">
+                <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-[#F4F1EA] w-fit">Tier 4</span>
+                <h4 class="font-bold text-base text-[#3A4A3E]">GraphQL E-Commerce API Server</h4>
+                <p class="text-xs text-[#6A7A6E]">TypeScript</p>
+                <p class="text-xs leading-relaxed">Typed schema queries and mutations for products, carts, and orders.</p>
+              </div>
+            </a>
+
+            <a href="https://fav-emmanuel.github.io/realtime-chat-app/" target="_blank" rel="noopener noreferrer" class="project-card">
+              <div class="project-image-box">Realtime Chat App Preview</div>
+              <div class="project-text-box">
+                <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-[#F4F1EA] w-fit">Tier 4</span>
+                <h4 class="font-bold text-base text-[#3A4A3E]">Real-Time Multi-User Chat App</h4>
+                <p class="text-xs text-[#6A7A6E]">TypeScript</p>
+                <p class="text-xs leading-relaxed">Live messaging room interface with presence and event stream updates.</p>
+              </div>
+            </a>
+
+            <a href="https://fav-emmanuel.github.io/secure-file-vault-aes256/" target="_blank" rel="noopener noreferrer" class="project-card">
+              <div class="project-image-box">AES-256 File Vault Preview</div>
+              <div class="project-text-box">
+                <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-[#F4F1EA] w-fit">Tier 4</span>
+                <h4 class="font-bold text-base text-[#3A4A3E]">Secure File Vault with AES-256</h4>
+                <p class="text-xs text-[#6A7A6E]">Python</p>
+                <p class="text-xs leading-relaxed">Encryption and decryption workflow for protecting sensitive payloads.</p>
+              </div>
+            </a>
+
+            <!-- Duplicate set -->
+            <a href="https://fav-emmanuel.github.io/async-high-throughput-scraper/" target="_blank" rel="noopener noreferrer" class="project-card" aria-hidden="true">
+              <div class="project-image-box">Async Scraper Preview</div>
+              <div class="project-text-box">
+                <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-[#F4F1EA] w-fit">Tier 4</span>
+                <h4 class="font-bold text-base text-[#3A4A3E]">Async High-Throughput Scraper</h4>
+                <p class="text-xs text-[#6A7A6E]">Python</p>
+                <p class="text-xs leading-relaxed">Concurrent collection pipeline with rate limiting and retry handling.</p>
+              </div>
+            </a>
+
+            <a href="https://fav-emmanuel.github.io/etl-data-pipeline-airflow/" target="_blank" rel="noopener noreferrer" class="project-card" aria-hidden="true">
+              <div class="project-image-box">Airflow ETL Pipeline Preview</div>
+              <div class="project-text-box">
+                <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-[#F4F1EA] w-fit">Tier 4</span>
+                <h4 class="font-bold text-base text-[#3A4A3E]">ETL Data Pipeline with Airflow</h4>
+                <p class="text-xs text-[#6A7A6E]">Python + Airflow</p>
+                <p class="text-xs leading-relaxed">Scheduled DAG stages extracting, transforming, and loading datasets.</p>
+              </div>
+            </a>
+
+            <a href="https://fav-emmanuel.github.io/graphql-ecommerce-api/" target="_blank" rel="noopener noreferrer" class="project-card" aria-hidden="true">
+              <div class="project-image-box">GraphQL E-Commerce API Preview</div>
+              <div class="project-text-box">
+                <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-[#F4F1EA] w-fit">Tier 4</span>
+                <h4 class="font-bold text-base text-[#3A4A3E]">GraphQL E-Commerce API Server</h4>
+                <p class="text-xs text-[#6A7A6E]">TypeScript</p>
+                <p class="text-xs leading-relaxed">Typed schema queries and mutations for products, carts, and orders.</p>
+              </div>
+            </a>
+
+            <a href="https://fav-emmanuel.github.io/realtime-chat-app/" target="_blank" rel="noopener noreferrer" class="project-card" aria-hidden="true">
+              <div class="project-image-box">Realtime Chat App Preview</div>
+              <div class="project-text-box">
+                <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-[#F4F1EA] w-fit">Tier 4</span>
+                <h4 class="font-bold text-base text-[#3A4A3E]">Real-Time Multi-User Chat App</h4>
+                <p class="text-xs text-[#6A7A6E]">TypeScript</p>
+                <p class="text-xs leading-relaxed">Live messaging room interface with presence and event stream updates.</p>
+              </div>
+            </a>
+
+            <a href="https://fav-emmanuel.github.io/secure-file-vault-aes256/" target="_blank" rel="noopener noreferrer" class="project-card" aria-hidden="true">
+              <div class="project-image-box">AES-256 File Vault Preview</div>
+              <div class="project-text-box">
+                <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-[#F4F1EA] w-fit">Tier 4</span>
+                <h4 class="font-bold text-base text-[#3A4A3E]">Secure File Vault with AES-256</h4>
+                <p class="text-xs text-[#6A7A6E]">Python</p>
+                <p class="text-xs leading-relaxed">Encryption and decryption workflow for protecting sensitive payloads.</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- TIER 5 -->
+      <section class="space-y-4">
+        <h3 class="text-xl font-semibold text-[#3A4A3E] border-b border-[#E3DEC3] pb-2">Tier 5: Compilers, AI &amp; Distributed Systems</h3>
+        <div class="tier-scroll relative w-full py-2" tabindex="0" aria-label="Tier 5 projects">
+          <div class="animate-marquee flex gap-6">
+            <a href="https://fav-emmanuel.github.io/custom-linter-static-analyzer/" target="_blank" rel="noopener noreferrer" class="project-card">
+              <div class="project-image-box">Static Analyzer Preview</div>
+              <div class="project-text-box">
+                <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-[#F4F1EA] w-fit">Tier 5</span>
+                <h4 class="font-bold text-base text-[#3A4A3E]">Custom Linter &amp; Static Analyzer</h4>
+                <p class="text-xs text-[#6A7A6E]">Python / TypeScript</p>
+                <p class="text-xs leading-relaxed">Rule-driven code inspection checking style, patterns, and diagnostics.</p>
+              </div>
+            </a>
+
+            <a href="https://fav-emmanuel.github.io/high-frequency-trading-backengine/" target="_blank" rel="noopener noreferrer" class="project-card">
+              <div class="project-image-box">Trading Backengine Preview</div>
+              <div class="project-text-box">
+                <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-[#F4F1EA] w-fit">Tier 5</span>
+                <h4 class="font-bold text-base text-[#3A4A3E]">High-Frequency Trading Backengine</h4>
+                <p class="text-xs text-[#6A7A6E]">Systems &amp; Simulation</p>
+                <p class="text-xs leading-relaxed">Event-driven order book and strategy simulation engine.</p>
+              </div>
+            </a>
+
+            <a href="https://fav-emmanuel.github.io/local-rag-document-search/" target="_blank" rel="noopener noreferrer" class="project-card">
+              <div class="project-image-box">Local RAG Search Preview</div>
+              <div class="project-text-box">
+                <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-[#F4F1EA] w-fit">Tier 5</span>
+                <h4 class="font-bold text-base text-[#3A4A3E]">Local RAG Document Search Engine</h4>
+                <p class="text-xs text-[#6A7A6E]">Python + Vector Search</p>
+                <p class="text-xs leading-relaxed">Document retrieval and context-grounded querying over local notes.</p>
+              </div>
+            </a>
+
+            <a href="https://fav-emmanuel.github.io/open-source-workflow-engine/" target="_blank" rel="noopener noreferrer" class="project-card">
+              <div class="project-image-box">Workflow Engine Preview</div>
+              <div class="project-text-box">
+                <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-[#F4F1EA] w-fit">Tier 5</span>
+                <h4 class="font-bold text-base text-[#3A4A3E]">Open-Source Workflow Engine</h4>
+                <p class="text-xs text-[#6A7A6E]">TypeScript</p>
+                <p class="text-xs leading-relaxed">Step orchestration runner with state transitions and failure recovery.</p>
+              </div>
+            </a>
+
+            <a href="https://fav-emmanuel.github.io/serverless-microservice-aws/" target="_blank" rel="noopener noreferrer" class="project-card">
+              <div class="project-image-box">Serverless Microservice Preview</div>
+              <div class="project-text-box">
+                <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-[#F4F1EA] w-fit">Tier 5</span>
+                <h4 class="font-bold text-base text-[#3A4A3E]">Serverless Microservice on AWS</h4>
+                <p class="text-xs text-[#6A7A6E]">Cloud Architecture</p>
+                <p class="text-xs leading-relaxed">Stateless event-driven service design and endpoint routing.</p>
+              </div>
+            </a>
+
+            <!-- Duplicate set -->
+            <a href="https://fav-emmanuel.github.io/custom-linter-static-analyzer/" target="_blank" rel="noopener noreferrer" class="project-card" aria-hidden="true">
+              <div class="project-image-box">Static Analyzer Preview</div>
+              <div class="project-text-box">
+                <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-[#F4F1EA] w-fit">Tier 5</span>
+                <h4 class="font-bold text-base text-[#3A4A3E]">Custom Linter &amp; Static Analyzer</h4>
+                <p class="text-xs text-[#6A7A6E]">Python / TypeScript</p>
+                <p class="text-xs leading-relaxed">Rule-driven code inspection checking style, patterns, and diagnostics.</p>
+              </div>
+            </a>
+
+            <a href="https://fav-emmanuel.github.io/high-frequency-trading-backengine/" target="_blank" rel="noopener noreferrer" class="project-card" aria-hidden="true">
+              <div class="project-image-box">Trading Backengine Preview</div>
+              <div class="project-text-box">
+                <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-[#F4F1EA] w-fit">Tier 5</span>
+                <h4 class="font-bold text-base text-[#3A4A3E]">High-Frequency Trading Backengine</h4>
+                <p class="text-xs text-[#6A7A6E]">Systems &amp; Simulation</p>
+                <p class="text-xs leading-relaxed">Event-driven order book and strategy simulation engine.</p>
+              </div>
+            </a>
+
+            <a href="https://fav-emmanuel.github.io/local-rag-document-search/" target="_blank" rel="noopener noreferrer" class="project-card" aria-hidden="true">
+              <div class="project-image-box">Local RAG Search Preview</div>
+              <div class="project-text-box">
+                <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-[#F4F1EA] w-fit">Tier 5</span>
+                <h4 class="font-bold text-base text-[#3A4A3E]">Local RAG Document Search Engine</h4>
+                <p class="text-xs text-[#6A7A6E]">Python + Vector Search</p>
+                <p class="text-xs leading-relaxed">Document retrieval and context-grounded querying over local notes.</p>
+              </div>
+            </a>
+
+            <a href="https://fav-emmanuel.github.io/open-source-workflow-engine/" target="_blank" rel="noopener noreferrer" class="project-card" aria-hidden="true">
+              <div class="project-image-box">Workflow Engine Preview</div>
+              <div class="project-text-box">
+                <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-[#F4F1EA] w-fit">Tier 5</span>
+                <h4 class="font-bold text-base text-[#3A4A3E]">Open-Source Workflow Engine</h4>
+                <p class="text-xs text-[#6A7A6E]">TypeScript</p>
+                <p class="text-xs leading-relaxed">Step orchestration runner with state transitions and failure recovery.</p>
+              </div>
+            </a>
+
+            <a href="https://fav-emmanuel.github.io/serverless-microservice-aws/" target="_blank" rel="noopener noreferrer" class="project-card" aria-hidden="true">
+              <div class="project-image-box">Serverless Microservice Preview</div>
+              <div class="project-text-box">
+                <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-[#F4F1EA] w-fit">Tier 5</span>
+                <h4 class="font-bold text-base text-[#3A4A3E]">Serverless Microservice on AWS</h4>
+                <p class="text-xs text-[#6A7A6E]">Cloud Architecture</p>
+                <p class="text-xs leading-relaxed">Stateless event-driven service design and endpoint routing.</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- About & Tech Stack -->
+      <section id="about" class="bg-[#F4F1EA] p-6 md:p-8 rounded-2xl border border-[#E3DEC3] shadow-sm space-y-3">
+        <h2 class="text-lg font-bold text-[#3A4A3E]">About Me</h2>
+        <p class="text-sm leading-relaxed">
+          I'm Favour Emmanuel, a BSc (Hons) Software Engineering student building practical tools, full-stack web apps, and embedded AI systems while working toward software engineering and AI/ML roles.
+        </p>
+      </section>
+
+      <section id="tech-stack" class="bg-[#F4F1EA] p-6 md:p-8 rounded-2xl border border-[#E3DEC3] shadow-sm space-y-3">
+        <h2 class="text-lg font-bold text-[#3A4A3E]">Tech Stack</h2>
+        <ul class="space-y-2 text-sm">
+          <li class="bg-[#FAF7F0] px-3.5 py-2 rounded-xl border border-[#E3DEC3]">
+            <strong class="text-[#3A4A3E]">Languages:</strong> Python, TypeScript, HTML/CSS, SQL, C++, Dart
+          </li>
+          <li class="bg-[#FAF7F0] px-3.5 py-2 rounded-xl border border-[#E3DEC3]">
+            <strong class="text-[#3A4A3E]">Frameworks &amp; Data:</strong> React, Next.js, FastAPI, PostgreSQL (pgvector), Tailwind CSS
+          </li>
+          <li class="bg-[#FAF7F0] px-3.5 py-2 rounded-xl border border-[#E3DEC3]">
+            <strong class="text-[#3A4A3E]">Tools &amp; Hardware:</strong> Git/GitHub, PlatformIO, ESP32-S3, VS Code
+          </li>
+        </ul>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    document.querySelectorAll('.tier-scroll').forEach((container) => {
+      container.addEventListener(
+        'wheel',
+        (e) => {
+          if (
+            container.scrollWidth > container.clientWidth &&
+            Math.abs(e.deltaY) > Math.abs(e.deltaX)
+          ) {
+            container.scrollLeft += e.deltaY;
+            e.preventDefault();
+          }
+        },
+        { passive: false }
+      );
+    });
+  </script>
 </body>
 </html>

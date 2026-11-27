@@ -1,116 +1,104 @@
-/* /styles.css */
+:root {
+  --bg-page: #FDFBF7;
+  --bg-surface: #F4F1EA;
+  --bg-card: #FAF7F0;
+  --border-soft: #E3DEC3;
+  --text-primary: #4A5D4E;
+  --text-heading: #3A4A3E;
+  --text-muted: #6A7A6E;
+  --scroll-thumb: #D6CEB8;
+  --scroll-thumb-hover: #B8AE96;
+}
 
-@keyframes scroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+@keyframes tierMarquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 .animate-marquee {
-    display: flex !important;
-    width: max-content !important;
-    animation: scroll 65s linear infinite !important;
+  display: flex;
+  width: max-content;
+  animation: tierMarquee 36s linear infinite;
 }
 
-.animate-marquee:hover {
-    animation-play-state: paused !important;
+.tier-scroll {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: var(--scroll-thumb) transparent;
 }
 
-/* Wider project group wrapper (520px wide so cards never bunch up) */
-.project-group {
-    width: 520px !important;
-    flex-shrink: 0 !important;
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 20px !important;
-    cursor: pointer !important;
+.tier-scroll::-webkit-scrollbar {
+  height: 6px;
 }
 
-/* Standalone Image Box on Top (Taller and larger) */
+.tier-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.tier-scroll::-webkit-scrollbar-thumb {
+  background-color: var(--scroll-thumb);
+  border-radius: 9999px;
+}
+
+.tier-scroll::-webkit-scrollbar-thumb:hover {
+  background-color: var(--scroll-thumb-hover);
+}
+
+/* Pause auto-scroll on hover or keyboard focus so visitors can scroll freely */
+.tier-scroll:hover .animate-marquee,
+.tier-scroll:focus-within .animate-marquee {
+  animation-play-state: paused;
+}
+
+.project-card {
+  width: 290px;
+  flex-shrink: 0;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-soft);
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card:hover {
+  transform: translateY(-3px);
+  border-color: #C8BFA6;
+  box-shadow: 0 8px 20px rgba(58, 74, 62, 0.08);
+}
+
 .project-image-box {
-    width: 100% !important;
-    height: 300px !important;
-    background-color: #FAF7F0 !important;
-    border-radius: 1rem !important;
-    border: 1px solid #E3DEC3 !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    font-size: 0.9rem !important;
-    color: #7A8A7E !important;
-    transition: all 0.3s ease !important;
+  height: 140px;
+  background-color: var(--bg-surface);
+  border-bottom: 1px solid var(--border-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  padding: 0.75rem;
+  text-align: center;
 }
 
-.project-group:hover .project-image-box {
-    border-color: #C4BC9E !important;
-}
-
-/* Standalone Text Box Below (Completely separate entity) */
 .project-text-box {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 8px !important;
-    width: 100% !important;
-    padding: 0 4px !important;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
 }
 
-/* /styles.css - Navbar Styles */
-.portfolio-nav {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background-color: rgba(253, 251, 247, 0.85);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid #E3DEC3;
-    padding: 16px 0;
-    margin-bottom: 32px;
-}
-
-.nav-container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 24px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.nav-logo {
-    font-weight: 700;
-    font-size: 1.2rem;
-    color: #3A4A3E;
-    text-decoration: none;
-}
-
-.nav-links {
-    display: flex;
-    gap: 24px;
-    align-items: center;
-    list-style: none;
-}
-
-.nav-links a {
-    color: #4A5D4E;
-    text-decoration: none;
-    font-size: 0.9rem;
-    transition: color 0.2s ease;
-}
-
-.nav-links a:hover {
-    color: #3A4A3E;
-    font-weight: bold;
-}
-
-.nav-cta {
-    background-color: #F4F1EA;
-    border: 1px solid #E3DEC3;
-    padding: 8px 16px;
-    border-radius: 0.5rem;
-    font-size: 0.85rem;
-    color: #3A4A3E;
-    text-decoration: none;
-    transition: all 0.2s ease;
-}
-
-.nav-cta:hover {
-    background-color: #E3DEC3;
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
+  }
+  .tier-scroll {
+    scroll-behavior: auto;
+  }
 }
